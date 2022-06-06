@@ -1,0 +1,25 @@
+import * as Prismic from "@prismicio/client";
+import sm from "../../sm.json";
+
+export const endpoint = sm.apiEndpoint;
+export const repositoryName = Prismic.getRepositoryName(endpoint);
+export const acessToken = sm.apiAcessToken;
+
+export function linkResolver(doc) {
+  switch (doc.type) {
+    case "homepage":
+      return "/";
+    case "page":
+      return `/posts/${doc.uid}`;
+    default:
+      return null;
+  }
+}
+
+export function createClient() {
+  const prismic = Prismic.createClient(endpoint, {
+    accessToken: acessToken,
+  });
+
+  return prismic;
+}
