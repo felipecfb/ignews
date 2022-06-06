@@ -1,0 +1,21 @@
+{
+  "id": "d7811f18-ed43-4008-a0f9-ecd1dccdb68c",
+  "uid": "fuga-velit-eos",
+  "type": "post",
+  "data": {
+    "Title": [
+      {
+        "type": "heading1",
+        "text": "Strategize vertical schemas",
+        "spans": []
+      }
+    ],
+    "Content": [
+      {
+        "type": "paragraph",
+        "text": "Labore elit velit nulla fugiat. Laborum minim fugiat irure commodo fugiat.",
+        "spans": []
+      }
+    ]
+  }
+}
