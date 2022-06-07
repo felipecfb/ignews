@@ -1,9 +1,10 @@
 import * as Prismic from "@prismicio/client";
-import sm from "../../sm.json";
+import sm from "../../sm.json"
 
-export const endpoint = process.env.PRISMIC_ENDPOINT;
+export const endpoint = sm.endPoint;
 export const repositoryName = Prismic.getRepositoryName(endpoint);
 export const acessToken = process.env.PRISMIC_ACESS_TOKEN;
+
 
 export function linkResolver(doc) {
   switch (doc.type) {

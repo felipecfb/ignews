@@ -1,7 +1,8 @@
 import Head from "next/head";
 import { createClient } from "../../services/prismic";
 import styles from "./styles.module.scss";
-import { RichText } from "prismic-dom";
+import * as prismicH from "@prismicio/helpers";
+import Link from "next/link";
 
 type Post = {
   slug: string;
@@ -24,11 +25,13 @@ export default function Posts({ posts }: PostsProps) {
       <main className={styles.container}>
         <div className={styles.posts}>
           {posts.map((post) => (
-            <a key={post.slug} href="#">
-              <time>{post.updatedAt}</time>
-              <strong>{post.title}</strong>
-              <p>{post.excerpt}</p>
-            </a>
+            <Link href={`/posts/${post.slug}`}>
+              <a key={post.slug} href="#">
+                <time>{post.updatedAt}</time>
+                <strong>{post.title}</strong>
+                <p>{post.excerpt}</p>
+              </a>
+            </Link>
           ))}
         </div>
       </main>
@@ -46,10 +49,11 @@ export async function getServerSideProps() {
   const posts = response.results.map((post) => {
     return {
       slug: post.uid,
-      title: RichText.asText(post.data.title),
+      title: prismicH.asText(post.data.Title),
       excerpt:
-        post.data.content.find((content) => content.type === "paragraph")
-          ?.text ?? "",
+        post.data.Content.find(
+          (content: { type: string }) => content.type === "paragraph"
+        ).text.substring(0, 100) + "...",
       updatedAt: new Date(post.last_publication_date).toLocaleDateString(
         "pt-BR",
         {
