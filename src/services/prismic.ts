@@ -1,7 +1,7 @@
 import * as Prismic from "@prismicio/client";
 import sm from "../../sm.json"
 
-export const endpoint = sm.endPoint;
+export const endpoint = sm.apiEndpoint;
 export const repositoryName = Prismic.getRepositoryName(endpoint);
 export const acessToken = process.env.PRISMIC_ACESS_TOKEN;
 

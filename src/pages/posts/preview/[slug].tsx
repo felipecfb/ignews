@@ -1,12 +1,11 @@
-import { GetServerSideProps } from "next";
-import { getSession } from "next-auth/react";
-import { createClient } from "../../services/prismic";
+import { GetStaticProps } from "next";
+import { createClient } from "../../../services/prismic";
 import * as prismicH from "@prismicio/helpers";
 import Head from 'next/head';
 
-import styles from './post.module.scss';
+import styles from '../post.module.scss';
 
-interface PostProps {
+interface PostPreviewProps {
   post: {
     slug: string;
     title: string;
@@ -15,7 +14,7 @@ interface PostProps {
   };
 }
 
-export default function Post({ post }: PostProps) {
+export default function PostPreview({ post }: PostPreviewProps) {
   return (
     <>
     <Head>
@@ -26,7 +25,7 @@ export default function Post({ post }: PostProps) {
             <h1>{post.title}</h1>
             <time>{post.updatedAt}</time>
             <div
-            className={styles.postContent}
+            className={`${styles.postContent} ${styles.previewContent}`}
             dangerouslySetInnerHTML={{ __html: post.content }} />
         </article>
     </main>
@@ -34,21 +33,15 @@ export default function Post({ post }: PostProps) {
   );
 }
 
-export const getServerSideProps: GetServerSideProps = async ({
-  req,
-  params,
-}) => {
-  const session = await getSession({ req });
-  const { slug } = params;
-
-  if (!session.activeSubscription) {
-    return {
-      redirect: {
-        destination: "/",
-        permanent: false,
-      }
-    }
+export const getStaticPaths = () => {
+  return {
+    paths: [],
+    fallback: 'blocking',
   }
+}
+
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const { slug } = params;
 
   const prismic = createClient();
   const response = await prismic.getByUID<any>("post", String(slug), {});
@@ -56,7 +49,7 @@ export const getServerSideProps: GetServerSideProps = async ({
   const post = {
     slug: response.uid,
     title: prismicH.asText(response.data.title),
-    content: prismicH.asHTML(response.data.content),
+    content: prismicH.asHTML(response.data.content.splice(0, 3)),
     updatedAt: new Date(response.last_publication_date).toLocaleDateString(
       "pt-BR",
       {

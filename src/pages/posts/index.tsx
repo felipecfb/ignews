@@ -49,9 +49,9 @@ export async function getServerSideProps() {
   const posts = response.results.map((post) => {
     return {
       slug: post.uid,
-      title: prismicH.asText(post.data.Title),
+      title: prismicH.asText(post.data.title),
       excerpt:
-        post.data.Content.find(
+        post.data.content.find(
           (content: { type: string }) => content.type === "paragraph"
         ).text.substring(0, 100) + "...",
       updatedAt: new Date(post.last_publication_date).toLocaleDateString(

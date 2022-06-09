@@ -1169,9 +1169,17 @@
   resolved "https://registry.npmjs.org/@panva/hkdf/-/hkdf-1.0.1.tgz"
   integrity sha512-mMyQ9vjpuFqePkfe5bZVIf/H3Dmk6wA8Kjxff9RcO4kqzJo+Ek9pGKwZHpeMr7Eku0QhLXMCd7fNCSnEnRMubg==
 
-"@prismicio/client@^6.4.3", "@prismicio/client@^6.5.1":
+"@prismicio/client@^6.4.3":
   version "6.5.1"
   resolved "https://registry.npmjs.org/@prismicio/client/-/client-6.5.1.tgz"
+  integrity sha512-SrluBNcTQ34UZI1oa+DLTWohaE8U2BU2QRpjZ9GOYa9Kty1RqWxFxr+qUTk7LS0QSbmVPEq1AngL5IR2HFZw2A==
+  dependencies:
+    "@prismicio/helpers" "^2.3.0"
+    "@prismicio/types" "^0.1.27"
+
+"@prismicio/client@^6.5.1":
+  version "6.5.1"
+  resolved "https://registry.yarnpkg.com/@prismicio/client/-/client-6.5.1.tgz#cf1da0d41579b18ab88684cf4146487cc340fc66"
   integrity sha512-SrluBNcTQ34UZI1oa+DLTWohaE8U2BU2QRpjZ9GOYa9Kty1RqWxFxr+qUTk7LS0QSbmVPEq1AngL5IR2HFZw2A==
   dependencies:
     "@prismicio/helpers" "^2.3.0"
@@ -1192,6 +1200,16 @@
     escape-html "^1.0.3"
     imgix-url-builder "^0.0.3"
 
+"@prismicio/helpers@^2.3.1":
+  version "2.3.1"
+  resolved "https://registry.yarnpkg.com/@prismicio/helpers/-/helpers-2.3.1.tgz#e6d36a95ca9b0c1340322e6ae1830fc072f02742"
+  integrity sha512-J37WpIUINZ0wT3a2h4fc9ATZqjmQjziPwjETG7QLYEVULpQXsWbgM+C6aoOqdlRwCbZ3Wfhel26+++ZaqOX/0Q==
+  dependencies:
+    "@prismicio/richtext" "^2.0.1"
+    "@prismicio/types" "^0.1.27"
+    escape-html "^1.0.3"
+    imgix-url-builder "^0.0.3"
+
 "@prismicio/next@^0.1.3":
   version "0.1.3"
   resolved "https://registry.npmjs.org/@prismicio/next/-/next-0.1.3.tgz"
@@ -1204,9 +1222,17 @@
     eslint-plugin-react "^7.30.0"
     eslint-plugin-react-hooks "^4.5.0"
 
-"@prismicio/react@^2.4.0", "@prismicio/react@^2.4.1":
+"@prismicio/react@^2.4.0":
   version "2.4.1"
   resolved "https://registry.npmjs.org/@prismicio/react/-/react-2.4.1.tgz"
+  integrity sha512-t0uYiyGxo8basQjcsMvgGpyZICw/XgiUIXyx5dERHN52TbGo5zOpZht8ThBuO0nppQMgFzsrvBczJJquJL6yOw==
+  dependencies:
+    "@prismicio/helpers" "^2.3.0"
+    "@prismicio/richtext" "^2.0.1"
+
+"@prismicio/react@^2.4.1":
+  version "2.4.1"
+  resolved "https://registry.yarnpkg.com/@prismicio/react/-/react-2.4.1.tgz#ca13c097c3f688babf6b44c7eb42b939e97dc01b"
   integrity sha512-t0uYiyGxo8basQjcsMvgGpyZICw/XgiUIXyx5dERHN52TbGo5zOpZht8ThBuO0nppQMgFzsrvBczJJquJL6yOw==
   dependencies:
     "@prismicio/helpers" "^2.3.0"
@@ -1242,7 +1268,7 @@
 
 "@prismicio/slice-simulator-react@^0.2.2":
   version "0.2.2"
-  resolved "https://registry.npmjs.org/@prismicio/slice-simulator-react/-/slice-simulator-react-0.2.2.tgz"
+  resolved "https://registry.yarnpkg.com/@prismicio/slice-simulator-react/-/slice-simulator-react-0.2.2.tgz#e12602def4c23c324a0a9f39c0ec3dbbd06a2681"
   integrity sha512-GfAP4nR01OhsahrNOhc58L0sVDcieU5AWEuuiRN55txQjKgaAl5GVtn0V6Pz4albnY4KKvLlQIffcgy2W+L9TQ==
   dependencies:
     "@prismicio/slice-simulator-core" "^0.2.1"
@@ -5883,7 +5909,7 @@ slash@3.0.0, slash@^3.0.0:
 
 slice-machine-ui@^0.3.8:
   version "0.3.8"
-  resolved "https://registry.npmjs.org/slice-machine-ui/-/slice-machine-ui-0.3.8.tgz"
+  resolved "https://registry.yarnpkg.com/slice-machine-ui/-/slice-machine-ui-0.3.8.tgz#5d9b8fd12c1a3d1279f52dd31a865d0b107a377a"
   integrity sha512-KV+x9+afZ20F4jc/kHMFlyZCV94OBGzf9QoH2RpkABdHcOW3okULmf8PET7lsshXlOg3VvrnYwmmudvIQHsZgg==
   dependencies:
     "@babel/register" "^7.17.7"
