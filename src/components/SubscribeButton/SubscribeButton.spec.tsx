@@ -4,7 +4,11 @@ import { useRouter } from "next/router";
 import { SubscribeButton } from ".";
 
 jest.mock("next-auth/react");
-jest.mock("next/router");
+jest.mock("next/router", () => ({
+  useRouter: jest.fn().mockReturnValue({
+    push: jest.fn(),
+  }),
+}));
 
 describe("SubscribeButton component", () => {
   it("renders correctly", () => {
@@ -65,6 +69,6 @@ describe("SubscribeButton component", () => {
 
     fireEvent.click(subscribeButton);
 
-    expect(pushMock).toHaveBeenCalledWith('/posts');
+    expect(pushMock).toHaveBeenCalledWith("/posts");
   });
 });

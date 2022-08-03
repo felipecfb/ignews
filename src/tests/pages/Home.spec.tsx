@@ -2,7 +2,12 @@ import { render, screen } from "@testing-library/react";
 import { stripe } from "../../services/stripe";
 import Home, { getStaticProps } from "../../pages";
 
-jest.mock("next/router");
+jest.mock("next/router", () => ({
+  useRouter: jest.fn().mockReturnValue({
+    push: jest.fn(),
+  }),
+}));
+
 jest.mock("next-auth/react", () => {
   return {
     useSession: () => {
