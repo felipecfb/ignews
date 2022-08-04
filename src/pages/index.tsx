@@ -48,10 +48,7 @@ export const getStaticProps: GetStaticProps = async () => {
       currency: "USD",
     }).format(price.unit_amount / 100),
   };
-
-  console.log(product);
   
-
   return {
     props: {
       product,

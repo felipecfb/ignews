@@ -4,7 +4,7 @@ import styles from "./styles.module.scss";
 import * as prismicH from "@prismicio/helpers";
 import Link from "next/link";
 
-type Post = {
+export type Post = {
   slug: string;
   title: string;
   excerpt: string;
@@ -42,18 +42,18 @@ export default function Posts({ posts }: PostsProps) {
 export async function getServerSideProps() {
   const prismic = createClient();
 
-  const response = await prismic.getByType("post", {
+  const response = await prismic.getAllByType("post", {
     pageSize: 100,
   });
 
-  const posts = response.results.map((post) => {
+  const posts = response.map((post) => {
     return {
       slug: post.uid,
-      title: prismicH.asText(post.data.title),
+      title: post.data.title,
       excerpt:
-        post.data.content.find(
-          (content: { type: string }) => content.type === "paragraph"
-        ).text.substring(0, 100) + "...",
+        post.data.content
+          .find((content: { type: string }) => content.type === "paragraph")
+          .text.substring(0, 100) + "...",
       updatedAt: new Date(post.last_publication_date).toLocaleDateString(
         "pt-BR",
         {
