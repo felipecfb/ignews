@@ -3,7 +3,7 @@ import sm from "../../sm.json"
 
 export const endpoint = sm.apiEndpoint;
 export const repositoryName = Prismic.getRepositoryName(endpoint);
-export const acessToken = process.env.PRISMIC_ACESS_TOKEN;
+export const acessToken = process.env.REACT_APP_PRISMIC_ACESS_TOKEN;
 
 
 export function linkResolver(doc) {

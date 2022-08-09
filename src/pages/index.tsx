@@ -14,6 +14,9 @@ interface HomeProps {
 }
 
 export default function Home({ product }: HomeProps) {
+  const stripeKey = process.env.REACT_APP_STRIPE_API_KEY;
+
+  console.log(stripeKey);
   return (
     <>
       <Head>
@@ -39,7 +42,7 @@ export default function Home({ product }: HomeProps) {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const price = await stripe.prices.retrieve("price_1KWLMgGOe1HUKDVZ0lQX35cM");
+  const price = await stripe.prices.retrieve("price_1LUsqDGOe1HUKDVZoEdCn2gF");
 
   const product = {
     priceId: price.id,
