@@ -14,11 +14,6 @@ interface HomeProps {
 }
 
 export default function Home({ product }: HomeProps) {
-  const GithubCLient = process.env.GITHUB_CLIENT_ID;
-
-  console.log(GithubCLient);
-  
-
   return (
     <>
       <Head>
