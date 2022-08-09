@@ -14,7 +14,7 @@ interface HomeProps {
 }
 
 export default function Home({ product }: HomeProps) {
-  const stripeKey = process.env.REACT_APP_STRIPE_API_KEY;
+  const stripeKey = process.env.STRIPE_API_KEY;
 
   console.log(stripeKey);
   return (
