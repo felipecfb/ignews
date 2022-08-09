@@ -5,7 +5,7 @@ import "../styles/global.scss";
 import { PrismicProvider } from "@prismicio/react";
 import Link from "next/link";
 import { PrismicPreview } from "@prismicio/next";
-import { linkResolver, repositoryName } from '../services/prismic';
+import { linkResolver, repositoryName } from "../services/prismic";
 
 function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
   return (
